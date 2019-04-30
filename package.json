@@ -1,0 +1,45 @@
+{
+	"name": "base-api-node",
+	"version": "0.0.29",
+	"description": "A boilerplate express api with CI pipelines for kubernetes",
+	"author": "Pablo Andrés Gottifredi",
+	"license": "BSD-3-Clause-Attribution",
+	"main": "server.js",
+	"engines": {
+		"node": "8.11.4"
+	},
+	"scripts": {
+		"dev": "nodemon src/server.js --exec babel-node",
+		"deploy": ".bashrc/pre-build.sh && .bashrc/set-env.sh && .bashrc/build.sh",
+		"watch": "cd dist && nodemon --exec babel-node server.js",
+		"start": "cd dist && node server.js",
+		"build": ".bashrc/set-env.sh && .bashrc/build.sh",
+		"clean": ".bashrc/docker-cleanup.sh",
+		"docker": ".bashrc/docker.sh"
+	},
+	"keywords": [
+		"api",
+		"boilerplate",
+		"express",
+		"es6"
+	],
+	"dependencies": {
+		"bcrypt": "^3.0.0",
+		"body-parser": "^1.18.3",
+		"chalk": "^2.4.1",
+		"compression": "^1.7.3",
+		"cors": "^2.8.4",
+		"ejs": "^2.6.1",
+		"express": "^4.16.3",
+		"npm": "^6.9.0",
+		"pkginfo": "^0.4.1"
+	},
+	"devDependencies": {
+		"nodemon": "^1.15.0",
+		"babel-cli": "^6.26.0",
+		"babel-core": "^6.26.3",
+		"babel-preset-env": "^1.7.0",
+		"babel-watch": "^2.0.7",
+		"cross-var": "^1.1.0"
+	}
+}

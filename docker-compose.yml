@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  base-api:
+    restart: always
+    container_name: api-boilerplate
+    env_file: .env
+    image: ${API_NAME_TAG}
+    volumes:
+      - ./src:/dist/src
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    command: 
+      - yarn dev
+    ports:
+      - "5000:3000"
+    networks:
+      - backend-cluster
+
+  nginx:
+    image: nginx:latest
+    container_name: backend-nginx
+    restart: always
+    ports:
+      - 8080:80
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    networks:
+      - backend-cluster
+    depends_on:
+      - base-api
+
+networks:
+  backend-cluster:
+    driver: "bridge"
