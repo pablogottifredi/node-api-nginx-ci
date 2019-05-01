@@ -1,5 +1,5 @@
 .EXPORT_ALL_VARIABLES:
-.PHONY: setup up down
+.PHONY: build watch down clean 
 
 MAKEPATH := $(abspath $(lastword $(MAKEFILE_LIST)))
 PWD := $(dir $(MAKEPATH))
@@ -7,21 +7,19 @@ INFO := '\033[0;34m' # Blue
 NC :='\033[0m' # No Color
 
 
-setup:
-	@echo -e ${INFO} ------------- Running setup flow${NC}
-	make setup-env
+build:
+	@echo -e ${INFO} ------------- Running build flow${NC}
+	npm run build
+	docker-compose -f docker-compose.yml up --build 
 
-setup-env:
-	@echo -e ${INFO} ------------- Setting up default enviroment values ${NC}
-	$(PWD).bashrc/set-env.sh
-	@echo -e ${INFO} ------------- Was created the .env file with default values to use your development enviroment ${NC}
-	@cat .env
-	
-up:
+watch:
 	@echo -e ${INFO} ------------- Running docker-compose ${NC} 
-	docker-compose up
+	docker-compose -f docker-compose.yml -f docker-compose-dev.yml up
 
 down:
 	docker-compose down
 
-	
+clean:
+	#todo
+	@echo TODO
+

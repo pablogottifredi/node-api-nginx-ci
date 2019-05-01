@@ -22,7 +22,7 @@ api.listen(config.server.port, err => {
 	fs.readdirSync(path.join(__dirname, 'routes')).map(file => {
 		require('./routes/' + file)(api);
 	});
-	console.log(`Que lo pario!.!!. is now running on port ${config.server.port} in ${config.env} mode.`);
+	console.log(`Is now running on internal port ${config.server.port} in ${config.env} mode.`);
 });
 
 module.exports = api;

@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  base-api:
+    volumes:
+      - ./src:/dist/src
+    command: yarn watch
+ 
+  nginx:
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d

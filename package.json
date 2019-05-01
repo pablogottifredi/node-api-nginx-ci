@@ -1,21 +1,18 @@
 {
 	"name": "base-api-node",
 	"version": "0.0.29",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/pablogottifredi/node-api-nginx-ci.git"
+	  },
 	"description": "A boilerplate express api with CI pipelines for kubernetes",
 	"author": "Pablo Andrés Gottifredi",
 	"license": "BSD-3-Clause-Attribution",
 	"main": "server.js",
-	"engines": {
-		"node": "8.11.4"
-	},
 	"scripts": {
-		"dev": "nodemon src/server.js --exec babel-node",
-		"deploy": ".bashrc/pre-build.sh && .bashrc/set-env.sh && .bashrc/build.sh",
-		"watch": "cd dist && nodemon --exec babel-node server.js",
-		"start": "cd dist && node server.js",
-		"build": ".bashrc/set-env.sh && .bashrc/build.sh",
-		"clean": ".bashrc/docker-cleanup.sh",
-		"docker": ".bashrc/docker.sh"
+		"build": "rm -rf dist && mkdir dist && npx babel src --out-dir dist",
+		"start": "nodejs dist/server.js",
+		"watch": "nodemon src/server.js --exec babel-node"
 	},
 	"keywords": [
 		"api",

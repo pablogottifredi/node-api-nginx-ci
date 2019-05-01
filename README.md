@@ -4,7 +4,7 @@ A boilerplate api server in nodeJS with a nginx as a proxy and pre compilled com
 Aditionally a swagger configuration and unit test & ci test examples.  
 
 ## Desing approach 
-Applying concepts of [12-factor-app](https://12factor.net/) this boilerplate api was designed so you can start quickly coding a solution ready to use in a real world
+Applying concepts of [12-factor-app](https://12factor.net/) this boilerplate api was designed with the purpose that you can start quickly coding a solution ready to use in a ***real world***
 
 ### Some concepts applied (5/12)
 * ***Dev/Prod parity***:  
@@ -51,6 +51,9 @@ Applying concepts of [12-factor-app](https://12factor.net/) this boilerplate api
 - [ ] Solve all pipelines to deploy
 - [ ] Finish versioning implementation script and colibry deploy
 - [ ] Solve localhost configuration to developer use   
+- [ ] Up to node:alpine
+- [ ] Up node engine
+- [ ] Swagger
 
 ## Getting Started
 
@@ -84,14 +87,40 @@ Setup your /etc/host file to resolve in local enviroment
 Warning!! with [DNS cache](https://beebom.com/how-flush-dns-cache-linux/) or browser [hardware acceleration](https://www.google.com/search?q=use+hardware+acceleration+when+available)
 
 ### Setup
+### Using Makefile
 The project provide a Makefile to configure the application and use under several 
-
-> make <param>
+```
+ make <param>
+```
 i.e
-`
+```
     make watch
-`
-List of params
+```
+#### List of params
+
+* `build`: setup the local enviroment, build code, traspile and minify. Put the source in dist folder and launch the server.  
+* `watch`: running the code from the src folder for run-in-time debugging and test the changes 
+* `down`: stop intizalized containers 
+* `clean`: delete all images and container from memory
+
+
+### Using Yarn
+
+
+#### Build the image
+```
+docker-compose up
+```
+
+The project provide a scripts defined into package.json to configure the application and use under several 
+```
+ yarn <param>
+```
+i.e
+```
+    yarn watch
+```
+#### List of params
 
 * `build`: setup the local enviroment, build code, traspile and minify. Put the source in dist folder and launch the server  
 * `setup`: setup the local enviroment
@@ -114,7 +143,7 @@ The file docker-compose.yml was configured to map the folder into the container
 
 Additionaly you have the nginx.conf for the api into the ***./nginx*** folder.  
 The changes are not reloaded automatically, ***you must restart the nginx using***
-#### For restaring nginx
+#### For restart nginx
 ```
 $ docker exec -ti CONTAINER_ID sh
 service nginx restart
@@ -123,7 +152,7 @@ service nginx restart
 ## About the infrastructure
 The command make build || make watch mount the follow infrastructure
 
-* [A Container with mhart/alpine-node:10 from docker hub](https://hub.docker.com/r/mhart/alpine-node/)
+* [A Container with node:carbon from docker hub](https://hub.docker.com/r/mhart/alpine-node/)
 * [A Nginx lastet version from docker hub](https://hub.docker.com/_/nginx)
 * The application **Base-api-node** with the source code transpiled into the /dist folder using [babel](https://babeljs.io/docs/en/babel-node) to support EC6 syntax and [nodemon](https://www.npmjs.com/package/nodemon) to restart the server when detect changes in the source code. 
 
