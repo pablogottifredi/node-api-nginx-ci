@@ -86,6 +86,11 @@ Setup your /etc/host file to resolve in local enviroment
 ```
 Warning!! with [DNS cache](https://beebom.com/how-flush-dns-cache-linux/) or browser [hardware acceleration](https://www.google.com/search?q=use+hardware+acceleration+when+available)
 
+### Config enviroment
+Setup enviroment runnign
+```
+  yarn setup 
+```
 
 ## Setup 
 ### Using Makefile
