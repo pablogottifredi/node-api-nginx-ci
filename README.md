@@ -79,22 +79,23 @@ $ git remote add upstream https://github.com/pablogottifredi/node-api-nginx-ci.
 $ git checkout -b my-branch/my-feature
 ```
 
-### Config host 
+## Setup
+### 1. Config host 
 Setup your /etc/host file to resolve in local enviroment
 ```
 127.0.0.1 base-api-node 
 ```
 Warning!! with [DNS cache](https://beebom.com/how-flush-dns-cache-linux/) or browser [hardware acceleration](https://www.google.com/search?q=use+hardware+acceleration+when+available)
 
-### Config enviroment
+### 2. Config enviroment
 Setup enviroment runnign
 ```
   yarn setup 
 ```
 
-## Setup 
-### Using Makefile
-The project provide a Makefile to configure the application and use under several 
+### 3. Build  
+
+The project provide a ***Makefile*** to configure the application and use under several scenarios 
 ```
  make <param>
 ```
@@ -102,38 +103,14 @@ i.e
 ```
     make watch
 ```
-#### List of params
+##### List of params
 
 * `build`: setup enviroment, build code, traspile and minify. Put the source in dist folder and launch the server.  
 * `watch`: running the code from the src folder for run-in-time debugging and test the changes 
 * `down`: stop intizalized containers 
 * `clean`: delete all images and container from memory
 
-
-### Using Yarn
-
-
-#### Build the image
-```
-docker-compose up
-```
-
-The project provide a scripts defined into package.json to configure the application and use under several 
-```
- yarn <param>
-```
-i.e
-```
-    yarn watch
-```
-#### List of params
-
-* `build`: setup the local enviroment, build code, traspile and minify. Put the source in dist folder and launch the server  
-* `watch`: running the code from the src folder for run-in-time debugging and test the changes 
-* `down`: stop intizalized containers 
-* `clean`: delete all images and container from memory
-
-### Output
+### 4. Test
 In your browser test the address
 ``` 
 open in your browser http://base-api-node:8080/
@@ -142,8 +119,9 @@ or make a GET using curl
 ```
 $ curl -G base-api-node:8080
 ```
-### Change code and config
-Running the project using watch you can change the source code directly in the ***./scr*** folder  
+
+## Change code or config
+When your run the project using watch you can change the source code directly in the ***./scr*** folder  
 The file docker-compose.yml was configured to map the folder into the container
 
 Additionaly you have the nginx.conf for the api into the ***./nginx*** folder.  
