@@ -72,9 +72,9 @@ But, this is not your place to made push request, so, you must make a Fork of th
 Follow the steps:
 ```
 * Making a local clone
-$ git clone https://github.com/pablogottifredi/python-SimpleHTTPServer.git
+$ git clone https://github.com/pablogottifredi/node-api-nginx-ci.git
 * Adding a Remote
-$ git remote add upstream https://github.com/pablogottifredi/python-SimpleHTTPServer.git myfork.git
+$ git remote add upstream https://github.com/pablogottifredi/node-api-nginx-ci.
 * Create a [Branch](https://12factor.net/codebase)
 $ git checkout -b my-branch/my-feature
 ```
@@ -123,7 +123,6 @@ i.e
 #### List of params
 
 * `build`: setup the local enviroment, build code, traspile and minify. Put the source in dist folder and launch the server  
-* `setup`: setup the local enviroment
 * `watch`: running the code from the src folder for run-in-time debugging and test the changes 
 * `down`: stop intizalized containers 
 * `clean`: delete all images and container from memory
