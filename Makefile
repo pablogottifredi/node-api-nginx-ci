@@ -5,11 +5,10 @@ MAKEPATH := $(abspath $(lastword $(MAKEFILE_LIST)))
 PWD := $(dir $(MAKEPATH))
 INFO := '\033[0;34m' # Blue
 NC :='\033[0m' # No Color
-
-
+include .env
 build:
 	@echo -e ${INFO} ------------- Running build flow${NC}
-	npm run build
+	yarn build
 	docker-compose -f docker-compose.yml up --build 
 
 watch:

@@ -86,7 +86,8 @@ Setup your /etc/host file to resolve in local enviroment
 ```
 Warning!! with [DNS cache](https://beebom.com/how-flush-dns-cache-linux/) or browser [hardware acceleration](https://www.google.com/search?q=use+hardware+acceleration+when+available)
 
-### Setup
+
+## Setup 
 ### Using Makefile
 The project provide a Makefile to configure the application and use under several 
 ```
@@ -98,7 +99,7 @@ i.e
 ```
 #### List of params
 
-* `build`: setup the local enviroment, build code, traspile and minify. Put the source in dist folder and launch the server.  
+* `build`: setup enviroment, build code, traspile and minify. Put the source in dist folder and launch the server.  
 * `watch`: running the code from the src folder for run-in-time debugging and test the changes 
 * `down`: stop intizalized containers 
 * `clean`: delete all images and container from memory

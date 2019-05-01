@@ -12,7 +12,8 @@
 	"scripts": {
 		"build": "rm -rf dist && mkdir dist && npx babel src --out-dir dist",
 		"start": "nodejs dist/server.js",
-		"watch": "nodemon src/server.js --exec babel-node"
+		"watch": "nodemon src/server.js --exec babel-node",
+		"setup": ".bashrc/set-env.sh"
 	},
 	"keywords": [
 		"api",

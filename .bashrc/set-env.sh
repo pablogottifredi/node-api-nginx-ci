@@ -12,6 +12,6 @@ echo "API_NAME_TAG="$NAMETAG >> .env
 
 
 echo 'base-api-node.local localhost' >> ~/.hosts
-echo 'base-api-node.local localhost' >> /etc/hosts
+#echo 'base-api-node.local localhost' >> /etc/hosts
 
 echo 'export HOSTALIASES=~/.hosts' >> ~/.bashrc
