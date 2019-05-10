@@ -2,15 +2,15 @@
     "swagger": "2.0",
     "info": {
       "version": "1.0.0",
-      "title": "API-AUTHORIZATION",
-      "description": "Swagger Interface for API-AUTHORIZATION",
+      "title": "base api node",
+      "description": "Swagger interface for documentation purposes",
       "license": {
         "name": "MIT",
         "url": "https://opensource.org/licenses/MIT"
       }
     },
-    "host": "api-authorization.test.surjavibrante.co",
-    "basePath": "/apiv1",
+    "host": "base-api-node",
+    "basePath": "/api",
     "schemes": [
       "http"
     ],

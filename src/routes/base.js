@@ -1,7 +1,5 @@
-import Base from '../controllers/base';
+import { Router } from 'express'
+import items from './items'
 
-import { wrapAsync } from '../utils/controllers';
-
-module.exports = api => {
-	api.route('/').get(wrapAsync(Base.get));
-};
+export default Router()
+  .use('/items/', items )

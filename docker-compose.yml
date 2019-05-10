@@ -15,18 +15,34 @@ services:
     networks:
       - backend-cluster
 
+
+  base-api-swagger-ui:
+    image: swaggerapi/swagger-ui
+    container_name: api-boilerplate-swagger-ui
+    ports:
+      - "5001:8080"
+    volumes:
+      - ./swagger/openapi.json:/openapi.json
+    environment:
+      SWAGGER_JSON: /openapi.json
+    networks:
+      - backend-cluster
+
+
   nginx:
     image: nginx:alpine
     container_name: backend-nginx
     restart: always
     ports:
       - 8080:80
+      - 80:80
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d
     networks:
       - backend-cluster
     depends_on:
       - base-api
+      - base-api-swagger-ui
 
 networks:
   backend-cluster:

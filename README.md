@@ -53,7 +53,6 @@ Applying concepts of [12-factor-app](https://12factor.net/) this boilerplate api
 - [ ] Solve localhost configuration to developer use   
 - [ ] Up to node:alpine
 - [ ] Up node engine
-- [ ] Swagger
 
 ## Getting Started
 
