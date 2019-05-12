@@ -117,7 +117,7 @@ open in your browser http://base-api-node/api/doc
 ```
 or make a GET using curl
 ```
-$ curl -G base-api-node/api
+$ curl -G base-api-node/api/items
 ```
 
 ## Change code or config
