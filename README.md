@@ -113,11 +113,11 @@ i.e
 ### 4. Test
 In your browser test the address
 ``` 
-open in your browser http://base-api-node:8080/
+open in your browser http://base-api-node/api/doc
 ```
 or make a GET using curl
 ```
-$ curl -G base-api-node:8080
+$ curl -G base-api-node/api
 ```
 
 ## Change code or config
