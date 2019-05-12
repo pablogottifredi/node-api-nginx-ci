@@ -7,13 +7,15 @@
 # https://alpinelinux.org/ 
 FROM node:carbon
 
-COPY package.json .
-RUN yarn 
-
-# set working directory, with code transpiled and minified
+RUN mkdir /dist
 WORKDIR /dist
 
-COPY . .
+COPY package.json .
+COPY .babelrc .
+COPY src src
+RUN npm install --save-dev @babel/core @babel/cli @babel/preset-env @babel/node
+RUN npm install 
+RUN npm run build
 
 # expose at port 3000
 EXPOSE 3000

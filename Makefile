@@ -9,8 +9,6 @@ include .env
 
 build:
 	@echo -e ${INFO} ------------- Running build flow${NC}
-	yarn install
-	yarn build
 	docker-compose -f docker-compose.yml up --build 
 
 watch:

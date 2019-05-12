@@ -33,11 +33,11 @@
 		"pkginfo": "^0.4.1"
 	},
 	"devDependencies": {
-		"nodemon": "^1.15.0",
-		"babel-cli": "^6.26.0",
-		"babel-core": "^6.26.3",
-		"babel-preset-env": "^1.7.0",
-		"babel-watch": "^2.0.7",
-		"cross-var": "^1.1.0"
+		"@babel/cli": "^7.4.4",
+		"@babel/core": "^7.4.4",
+		"@babel/node": "^7.2.2",
+		"@babel/preset-env": "^7.4.4",
+		"cross-var": "^1.1.0",
+		"nodemon": "^1.15.0"
 	}
 }
